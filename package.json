@@ -6,7 +6,8 @@
   "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cli": "node ./src/cli.js resource"
+    "cli": "node ./src/cli.js resource/text.md",
+    "cli:validation": "node ./src/cli.js resource/text.md --validate"
   },
   "repository": {
     "type": "git",
