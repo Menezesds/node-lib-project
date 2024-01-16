@@ -3,18 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cli": "node ./src/cli.js resource/text.md",
+    "cli:validation": "node ./src/cli.js resource/text.md --validate"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Menezesds/node-lib-project.git"
+    "url": "git+https://github.com/menezesds/node-lib-project.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Diogo Menezes",
   "license": "ISC",
   "bugs": {
-    "url": " https://github.com/Menezesds/node-lib-project/issues"
+    "url": "https://github.com/menezesds/node-lib-project/issues"
   },
-  "homepage": " https://github.com/Menezesds/node-lib-project.git#readme"
+  "homepage": "https://github.com/menezesds/node-lib-project#readme",
+  "dependencies": {
+    "chalk": "5.0.1"
+  }
 }
