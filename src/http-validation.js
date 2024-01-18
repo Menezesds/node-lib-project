@@ -4,25 +4,25 @@ function extractLinks(arrayLinks) {
 
 async function checkStatus(urlList) {
     const arrStatus = await Promise
-        .all(
-            urlList.map(async (url) => {
-                try {
-                    const response = await fetch(url);
-                    return response.status;
-                } catch (error) {
-                   return erroHandling(error); 
-                }
-            })
-        )
-        return arrStatus;
-}
+    .all(
+        urlList.map(async (url) => {
+        try {
+          const response = await fetch(url)
+          return response.status;
+        } catch (erro) {
+          return erroHandling(erro);
+        }
+      })
+    )
+    return arrStatus;
+  }
 
 function erroHandling(erro){
     if(erro.cause.code === 'ENOTFOUND'){
         return 'link not found';
     } else {
         return 'Other error';
-    }
+}
 }
 
 export default async function validateLinkList(linkList) {

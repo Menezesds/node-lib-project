@@ -4,27 +4,9 @@ import fs from 'fs';
 import getExtracedFile from './index.js';
 import validateLinkList from './http-validation.js';
 
-
-const args = process.argv;
-
-async function printList(validation, list, path = ''){
-    if(validation) {
-        console.log(
-            chalk.black.bgYellow(`Valid links:`), 
-            chalk.black.bgGreen(path),
-            await validateLinkList(list));
-    } else {
-        console.log(
-            chalk.black.bgYellow(`List of links:`), 
-            chalk.black.bgGreen(path),
-            list);
-
-    }
-}
-
-async function textProcess(args) {
-    const path = args[2];
-    const validation = args[3] === '--validate' ? true : false;
+export async function textProcess(args) {
+    const path = args.path;
+    const validation = args.validation;
 
     try {
         fs.lstatSync(path);
@@ -47,4 +29,17 @@ async function textProcess(args) {
     }
 }
 
-textProcess(args);
+async function printList(validation, list, path = ''){
+    if(validation) {
+        console.log(
+            chalk.black.bgYellow(`Valid links:`), 
+            chalk.black.bgGreen(path),
+            await validateLinkList(list));
+    } else {
+        console.log(
+            chalk.black.bgYellow(`List of links:`), 
+            chalk.black.bgGreen(path),
+            list);
+
+    }
+}
