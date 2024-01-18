@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli": "node ./src/cli.js resource/text.md",
-    "cli:validation": "node ./src/cli.js resource/text.md --validate"
+    "cli:validation": "node ./yargs.js --validation --path ./resource/text.md"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/menezesds/node-lib-project#readme",
   "dependencies": {
-    "chalk": "5.0.1"
+    "chalk": "5.0.1",
+    "yargs": "^17.1.1-candidate.0"
   }
 }
