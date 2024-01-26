@@ -13,13 +13,16 @@ on:
       - main
       - github-actions-config
   workflow_dispatch:
+
 jobs:
   build-and-test:
+    name: Test on node ${{ matrix.os }} and ${{ matrix.node-version }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
         node-version: [20.x]
-    runs-on: ${{ matrix.os }}}
+    
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
