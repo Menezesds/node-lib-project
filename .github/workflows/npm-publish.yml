@@ -12,6 +12,7 @@ on:
     branches: 
       - main
       - github-actions-config
+  workflow_dispatch:
 jobs:
   build-and-test:
     if: github.event.pull_request.merged == true
