@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "mocha specs/**.spec.js --exit",
     "cli": "node ./src/cli.js resource/text.md",
     "cli:validation": "node ./yargs.js --validation --path ./resource/text.md"
   },
@@ -25,5 +25,11 @@
   "dependencies": {
     "chalk": "5.0.1",
     "yargs": "^17.1.1-candidate.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "chai": "^5.0.3",
+    "mocha": "^10.2.0"
   }
 }
