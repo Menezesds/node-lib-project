@@ -5,9 +5,9 @@ name: Node.js Package
 
 on:
   push:
-    branches: [main]
-  release:
-    types: [created]
+    branches: 
+      - main
+      - dev
 
 jobs:
   build-and-test:
@@ -18,4 +18,5 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
+      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
       - run: npm run test:unit
