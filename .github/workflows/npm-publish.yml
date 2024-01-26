@@ -5,12 +5,12 @@ name: Node.js Package
 
 on:
   push:
-    branches: [main]
-  release:
-    types: [created]
-
+    branches: 
+      - main
+      - dev
 jobs:
   build-and-test:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
