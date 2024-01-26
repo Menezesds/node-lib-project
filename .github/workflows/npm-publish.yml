@@ -8,6 +8,10 @@ on:
     branches: 
       - main
       - dev
+  pull_request:
+    branches: 
+      - main
+      - github-actions-config
 jobs:
   build-and-test:
     if: github.event.pull_request.merged == true
