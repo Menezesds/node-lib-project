@@ -34,4 +34,16 @@ jobs:
         shell: bash
         env:
           TEST: ${{secrets.TEST}}
+      - run: 'echo "$Test_ci" > key'
+        shell: bash
+        env:
+          Test_ci: ${{secrets.Test_ci}}
+      - run: 'echo "$TEST" > key'
+        shell: bash
+        env:
+          TEST: ${{secrets.Test_ci.TEST}}
+      - run: 'echo "$TEST" > key'
+        shell: bash
+        env:
+          TEST: ${{Test_ci.Test_ci}}
       - run: npm run test:unit
