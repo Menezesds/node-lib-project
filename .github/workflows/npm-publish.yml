@@ -16,6 +16,7 @@ on:
 
 jobs:
   build-and-test:
+    if: github.event_name == pull_request
     name: Test on node ${{ matrix.os }} and ${{ matrix.node-version }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -29,8 +30,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: echo "::${{ secrets.Test_ci.TEST }}"
-      - run: echo "::${{ github.event_name }}"
-      - run: echo "::${{ github.event.action }}"
-      - run: echo "::${{ github.event.pull_request.merged }}"
+      - run: echo "::${{ secrets.TEST }}"
       - run: npm run test:unit
