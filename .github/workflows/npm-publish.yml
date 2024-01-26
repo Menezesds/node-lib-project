@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: 'echo "$TEST" | base64'
+      - run: 'echo "${{secrets.TEST}}" | base64'
         shell: bash
         env:
           SSH_KEY: ${{ secrets.TEST }}
