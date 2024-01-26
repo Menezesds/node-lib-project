@@ -10,6 +10,7 @@ on:
       - dev
 jobs:
   build-and-test:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,5 +18,4 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
       - run: npm run test:unit
