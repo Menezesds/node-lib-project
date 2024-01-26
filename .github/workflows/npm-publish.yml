@@ -29,6 +29,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: echo "::${{ secrets.Test }}"
+      - run: echo "::${{ secrets.Test_ci.TEST }}"
+      - run: echo "::${{ github.event_name }}"
+      - run: echo "::${{ github.event.action }}"
       - run: echo "::${{ github.event.pull_request.merged }}"
       - run: npm run test:unit
