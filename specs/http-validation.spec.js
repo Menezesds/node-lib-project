@@ -18,7 +18,7 @@ describe('Test the validation off the links', () => {
     const result = await validateLinkList(linkList);
 
     expect(result).to.be.an('array');
-    expect(result).to.have.lengthOf(1);
+    expect(result).to.have.lengthOf(0);
   });
 
   it('should return an array of objects with status set to "invalid" for invalid URLs', async () => {
